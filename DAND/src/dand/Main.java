@@ -30,8 +30,7 @@ public class Main {
         Main main = new Main();
         PlayersController playersController = new PlayersController();
         CardController cardController = new CardController();
-
+      
     }
-    
-    
+
 }

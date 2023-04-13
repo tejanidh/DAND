@@ -21,6 +21,7 @@ public class PlayersController {
         sc = new Scanner(System.in);
         GameData.gamePlayers = new ArrayList<Player>();
         this.setPlayers();
+        GameData.currentOneToThrow=0;
         
 //        playersController = new PlayersController();
     }

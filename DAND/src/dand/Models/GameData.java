@@ -23,9 +23,13 @@ public class GameData {
     public static int noOfPlayers;
     public static int noOfCards = 0;
     public static int noOfDeck = 0;
+    public static int currentOneToThrow;
+    
     
     public static ArrayList<GameCardViewModel> GMVMList;
     public GameData() {
+        
+        
     }
     
     
