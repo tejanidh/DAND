@@ -19,12 +19,15 @@ public class CardController {
     public CardController() {
         GameData.noOfDeck = (int)(GameData.noOfPlayers / 6); 
 //        }
+        if(GameData.noOfDeck  == 0) GameData.noOfDeck = 1;
         for(int i = 0; i < GameData.noOfDeck; i++){
            this.setCards();    
         }
+        System.out.println(GameData.cardList);
         GameData.shuffledCardList = GameData.cardList;
         Collections.shuffle(GameData.shuffledCardList);
-        dictatingCards();
+        System.out.println(GameData.shuffledCardList);
+        this.dictatingCards();
     }
     
     
@@ -88,7 +91,10 @@ public class CardController {
         for(int i = 0; i < GameData.noOfPlayers; i++) {
             GameData.GMVMList.add(new GameCardViewModel());
             GameData.GMVMList.get(i).playerId = GameData.gamePlayers.get(i).getId();
-            GameData.GMVMList.get(i).gameStartCardList = new ArrayList<Card>();
+            GameData.GMVMList.get(i).gameStartCardList = new ArrayList<Card>();     
+            GameData.GMVMList.get(i).currentCardList = new ArrayList<Card>();
+
+            
         }
         
         

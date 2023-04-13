@@ -6,6 +6,7 @@ package dand.Controllers;
 
 import dand.Models.GameData;
 import dand.Models.Player;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -18,7 +19,9 @@ public class PlayersController {
 //    PlayersController playersController;
     public PlayersController() {
         sc = new Scanner(System.in);
+        GameData.gamePlayers = new ArrayList<Player>();
         this.setPlayers();
+        
 //        playersController = new PlayersController();
     }
     
@@ -57,7 +60,7 @@ public class PlayersController {
             }
         }
         catch (Exception e) {
-             System.out.println("Player adding error.");
+             System.out.println("Player adding error." + e.getMessage());
         }
         return temp;
     }
