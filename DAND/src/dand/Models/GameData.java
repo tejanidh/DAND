@@ -4,7 +4,7 @@
  */
 package dand.Models;
 
-import dand.GameCardViewModel;
+
 import java.util.ArrayList;
 
 /**

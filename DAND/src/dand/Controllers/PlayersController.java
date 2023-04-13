@@ -18,6 +18,7 @@ public class PlayersController {
 //    PlayersController playersController;
     public PlayersController() {
         sc = new Scanner(System.in);
+        this.setPlayers();
 //        playersController = new PlayersController();
     }
     
@@ -66,4 +67,6 @@ public class PlayersController {
         String name = sc.next();
         return name;
     }
+    
+    
 }
