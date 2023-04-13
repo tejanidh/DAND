@@ -5,6 +5,7 @@
  */
 package dand;
 
+import dand.Models.Card;
 import java.util.ArrayList;
 import java.util.Collections;
 
