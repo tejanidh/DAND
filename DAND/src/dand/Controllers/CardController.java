@@ -19,7 +19,11 @@ import java.util.Scanner;
  */
 public class CardController {
     Scanner sc;
+    
     public CardController() {
+        sc = new Scanner(System.in);
+    }
+    public void startGame() {
         GameData.winnerGamePlayers = new ArrayList<Player>();
         GameData.centeredCardList = new ArrayList<Card>();
         sc = new Scanner(System.in);

@@ -30,9 +30,8 @@ public class Main {
         Main main = new Main();
         GameData.playersController = new PlayersController();
         GameData.cardController = new CardController();
-
-        GameData.playersController = new PlayersController();
-        GameData.cardController = new CardController();
+        GameData.cardController.startGame();
+        
       
     }
 
