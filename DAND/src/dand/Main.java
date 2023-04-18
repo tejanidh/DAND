@@ -28,8 +28,8 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         Main main = new Main();
-        PlayersController playersController = new PlayersController();
-        CardController cardController = new CardController();
+        GameData.playersController = new PlayersController();
+        GameData.cardController = new CardController();
 
     }
     

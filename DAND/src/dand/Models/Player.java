@@ -14,15 +14,16 @@ package dand.Models;
 public class Player {
     private int id;
     private String name; //the unique name for this player
-
+    private boolean isCardOver;
     /**
      * A constructor that allows you to set the player's unique ID
      *
      * @param name the unique ID to assign to this player.
      */
-    public Player(int id,String name) {
+    public Player(int id,String name, boolean isCardOver) {
         this.setId(id);
         this.setName(name);
+        this.setIsCardOver(isCardOver);
     }
 
     /**
@@ -55,6 +56,16 @@ public class Player {
         this.id = id;
     }
 
+    public boolean isIsCardOver() {
+        return isCardOver;
+    }
+
+    public void setIsCardOver(boolean isCardOver) {
+        this.isCardOver = isCardOver;
+    }
+
+    
+    
     @Override
     public String toString() {
 //        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody

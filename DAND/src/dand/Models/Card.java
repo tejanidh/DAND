@@ -25,12 +25,25 @@ public class Card {
     private String cardNo;
     private int cardColor;
     private boolean isSpecial;
-
+    private int priority;
+    
+    public Card() {
+        
+    }
+    
     public Card(int id, String cardNo, int cardColor, boolean isSpecial) {
         this.id = id;
         this.cardNo = cardNo;
         this.cardColor = cardColor;
         this.isSpecial = isSpecial;
+        this.priority = 0;
+    }
+    public Card(int id, String cardNo, int cardColor, boolean isSpecial, int priority) {
+        this.id = id;
+        this.cardNo = cardNo;
+        this.cardColor = cardColor;
+        this.isSpecial = isSpecial;
+        this.priority = priority;
     }
 
     @Override
@@ -68,6 +81,14 @@ public class Card {
 
     public void setIsSpecial(boolean isSpecial) {
         this.isSpecial = isSpecial;
+    }
+
+    public int getPriority() {
+        return this.priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
     
     

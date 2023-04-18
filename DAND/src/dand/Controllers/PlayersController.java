@@ -51,7 +51,7 @@ public class PlayersController {
                 while(x) {
                     String name = this.setPlayerName(i);
                     if(name != "" && name != null) {
-                        Player player = new Player((i+1),name);            
+                        Player player = new Player((i+1),name,false);            
                         GameData.gamePlayers.add(player);
                         name = "";
                         x = false;
@@ -71,5 +71,26 @@ public class PlayersController {
         return name;
     }
     
-    
+    public boolean checkHowManyHaveCards(){
+        boolean status = false;
+        int cardPlayerCounter = 0;
+        try {
+            
+        
+        
+        for(int i = 0; i < GameData.noOfPlayers; i++) {
+            if(!GameData.cardController.checkIsCardOverOrNot(i)) {
+                cardPlayerCounter++;
+            }
+        }
+        if(cardPlayerCounter == 1) GameData.cardController.gameOver();
+        else if(cardPlayerCounter > 1) return false;
+        else if(cardPlayerCounter == 0) throw new Exception("There is some error in game");
+        
+        }
+        catch(Exception e) {
+            System.out.println("Exception caught : " + e.getMessage());
+        }
+        return status;
+    }
 }
