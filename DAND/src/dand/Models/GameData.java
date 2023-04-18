@@ -20,7 +20,7 @@ public class GameData {
     public static ArrayList<Card> cardList = new  ArrayList<Card>();  
     public static ArrayList<Card> shuffledCardList = new  ArrayList<Card>();  
     public static ArrayList<Card> centeredCardList = new  ArrayList<Card>();
-    public static int currentOneToThrow = 0;
+    public static int currentOneToThrow = 1;
     public static boolean playOrder = true;
     //true => ascending
     //false => reverse

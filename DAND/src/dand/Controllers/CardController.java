@@ -33,10 +33,10 @@ public class CardController {
         for(int i = 0; i < GameData.noOfDeck; i++){
            GameData.cardController.setCards();    
         }
-        System.out.println(GameData.cardList);
+//        System.out.println(GameData.cardList);
         GameData.shuffledCardList = GameData.cardList;
         Collections.shuffle(GameData.shuffledCardList);
-        System.out.println(GameData.shuffledCardList);
+//        System.out.println(GameData.shuffledCardList);
         GameData.cardController.dictatingCards();
         while(cardId != -1) {
             ThrowCard();
@@ -92,9 +92,9 @@ public class CardController {
         } catch (Exception e) {
             System.out.println("Exception caught in Main class : " + e.getMessage());
         }
-        for(int i = 0; i < GameData.cardList.size(); i++) {
-               System.out.println(GameData.cardList.get(i).toString());
-        }
+//        for(int i = 0; i < GameData.cardList.size(); i++) {
+//               System.out.println(GameData.cardList.get(i).toString());
+//        }
          
     }
  
@@ -103,7 +103,9 @@ public class CardController {
         
         for(int i = 0; i < GameData.noOfPlayers; i++) {
             GameData.GMVMList.add(new GameCardViewModel());
+            
             GameData.GMVMList.get(i).playerId = GameData.gamePlayers.get(i).getId();
+            System.out.println(GameData.GMVMList.get(i).playerId);
             GameData.GMVMList.get(i).gameStartCardList = new ArrayList<Card>();     
             GameData.GMVMList.get(i).currentCardList = new ArrayList<Card>(); 
         }
@@ -164,14 +166,19 @@ public class CardController {
                     GameData.cardController.checkCardWithLastCardNumber(GameData.cardList.get(cardId),GameData.centeredCardList.get(GameData.centeredCardList.size() - 1))) {
                     throwC = true;
                 }
+                else {
+                    System.out.println("Not matching please try again");
+                    throwC = false;
+                }
             }
             
             if(throwC) {
                 GameData.centeredCardList.add(GameData.GMVMList.get(GameData.currentOneToThrow - 1).currentCardList.get(GameData.cardController.getCardIndexFromCurrentListOfUser(cardId)));
                     GameData.GMVMList.get(GameData.currentOneToThrow - 1).currentCardList.remove(GameData.cardController.getCardIndexFromCurrentListOfUser(cardId));
+                    GameData.cardController.UpdateCurrentCardThrower();
             }
             
-            GameData.cardController.UpdateCurrentCardThrower();
+            
 
         }
     }
@@ -257,8 +264,10 @@ public class CardController {
     }
     
     public void showCards() {
+        
         for(int i = 0; i < GameData.GMVMList.size(); i++) {
-            if(GameData.GMVMList.get(i).playerId == GameData.currentOneToThrow && GameData.cardController.checkIsCardOverOrNot()) {
+            System.out.println(GameData.GMVMList.get(i).playerId + " " + GameData.currentOneToThrow);
+            if(GameData.GMVMList.get(i).playerId == GameData.currentOneToThrow && !GameData.cardController.checkIsCardOverOrNot(i)) {
                 //print player name
                 for(int k = 0; k < GameData.gamePlayers.size(); k++) {
                         if(GameData.currentOneToThrow == GameData.gamePlayers.get(i).getId()) {
@@ -276,7 +285,7 @@ public class CardController {
     public void UpdateCurrentCardThrower() {
         if(GameData.playOrder) GameData.cardController.UpdateClockwiseOrder();
         else GameData.cardController.UpdateAntiClockwiseOrder();
-        if(GameData.cardController.checkIsCardOverOrNot(GameData.currentOneToThrow)) GameData.cardController.UpdateCurrentCardThrower();
+        if(GameData.cardController.checkIsCardOverOrNot(GameData.currentOneToThrow - 1)) GameData.cardController.UpdateCurrentCardThrower();
     }
     
     public void UpdateClockwiseOrder() {
