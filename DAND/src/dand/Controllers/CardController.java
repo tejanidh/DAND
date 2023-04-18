@@ -38,8 +38,14 @@ public class CardController {
         Collections.shuffle(GameData.shuffledCardList);
 //        System.out.println(GameData.shuffledCardList);
         GameData.cardController.dictatingCards();
+        
+        System.out.println("Notice:::: Please enter -1 when you want to stop game");
+        
         while(cardId != -1) {
             ThrowCard();
+        }
+        if(cardId == -1) {
+            gameOver();
         }
     }
     
@@ -157,6 +163,12 @@ public class CardController {
                         break;
                     case "+4":
                         GameData.takeUpCard += 4;
+                        break;
+                    case "Reverse":
+                        GameData.cardController.changePlayOrder();
+                        break;
+                    case "Skip":
+                        GameData.cardController.UpdateCurrentCardThrower();
                         break;
                 }
                 throwC = true;
