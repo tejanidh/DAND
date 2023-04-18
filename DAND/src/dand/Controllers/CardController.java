@@ -18,6 +18,7 @@ import java.util.Scanner;
  * @author tejan
  */
 public class CardController {
+<<<<<<< HEAD
     Scanner sc;
     public CardController() {
         GameData.winnerGamePlayers = new ArrayList<Player>();
@@ -33,6 +34,7 @@ public class CardController {
         GameData.shuffledCardList = GameData.cardList;
         Collections.shuffle(GameData.shuffledCardList);
         System.out.println(GameData.shuffledCardList);
+<<<<<<< HEAD
         GameData.cardController.dictatingCards();
         
     }
@@ -86,16 +88,9 @@ public class CardController {
         } catch (Exception e) {
             System.out.println("Exception caught in Main class : " + e.getMessage());
         }
-        for(int i = 0; i < GameData.cardList.size(); i++) {
-               System.out.println(GameData.cardList.get(i).toString());
         }
-         
     }
- 
-    public void dictatingCards(){
         GameData.GMVMList = new ArrayList<GameCardViewModel>();
-        
-        for(int i = 0; i < GameData.noOfPlayers; i++) {
             GameData.GMVMList.add(new GameCardViewModel());
             GameData.GMVMList.get(i).playerId = GameData.gamePlayers.get(i).getId();
             GameData.GMVMList.get(i).gameStartCardList = new ArrayList<Card>();     
@@ -168,6 +163,7 @@ public class CardController {
             GameData.cardController.UpdateCurrentCardThrower();
 
         }
+
     }
     
     public int getCardIndexFromCurrentListOfUser(int cardId) {

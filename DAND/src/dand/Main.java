@@ -28,9 +28,15 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         Main main = new Main();
+<<<<<<< HEAD
         GameData.playersController = new PlayersController();
         GameData.cardController = new CardController();
 
+=======
+        PlayersController playersController = new PlayersController();
+        CardController cardController = new CardController();
+      
+>>>>>>> 11f4d7add01f6956a45ac2efcbb2688e3aa12727
     }
     
     
