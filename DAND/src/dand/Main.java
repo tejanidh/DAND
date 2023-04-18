@@ -38,6 +38,5 @@ public class Main {
       
 >>>>>>> 11f4d7add01f6956a45ac2efcbb2688e3aa12727
     }
-    
-    
+
 }
