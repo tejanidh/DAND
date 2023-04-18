@@ -19,7 +19,7 @@ import java.util.Scanner;
  */
 public class CardController {
     Scanner sc;
-    
+    private int cardId = 0;
     public CardController() {
         sc = new Scanner(System.in);
     }
@@ -38,7 +38,9 @@ public class CardController {
         Collections.shuffle(GameData.shuffledCardList);
         System.out.println(GameData.shuffledCardList);
         GameData.cardController.dictatingCards();
-        
+        while(cardId != -1) {
+            ThrowCard();
+        }
     }
     
     
@@ -138,7 +140,8 @@ public class CardController {
         GameData.cardController.showCards();
         
         System.out.println("Please enter card id which card you want to throw : ");
-        int cardId = sc.nextInt();
+        cardId = sc.nextInt();
+        if(cardId == -1) return;
         if(GameData.cardController.checkInUserCard(cardId)) {
 //            GameData.GMVMList.get(Ga)
             boolean throwC = false;
@@ -149,7 +152,6 @@ public class CardController {
                 switch (GameData.cardList.get(cardId).getCardNo()) {
                     case "+2":
                         GameData.takeUpCard += 2;
-                        
                         break;
                     case "+4":
                         GameData.takeUpCard += 4;
